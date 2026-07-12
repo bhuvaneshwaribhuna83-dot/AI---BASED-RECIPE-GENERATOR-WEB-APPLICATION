@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+        <img src="images/logo.png" alt="Logo">
+    <h2> Recipe Generator</h2>
+    <p class="tagline"> Search, Cook and Enjoy Delicious Recipes 🍽️
+</p>
+</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#contact">Contact</a></li>
+         <li><a href="#about">About</a></li>
+    </ul>
+    <button onclick="toggleTheme()">🌙 Theme</button>
+</nav>
+<section id="home">
+    <h2>Welcome to Recipe Generator 🍴</h2>
+
+    <p>
+        Find delicious recipes quickly and easily.
+        Enter your favorite dish name and get recipe details instantly.
+    </p>
+</section>
+<section id="recipes">
+
+
+ <div class="container">
+        <h1>🍽️ Recipe Generator 🍽️</h1>
+        <div class="categories">
+
+<button onclick="selectCategory('Breakfast')">🍞 Breakfast</button>
+
+<button onclick="selectCategory('Lunch')">🍛 Lunch</button>
+
+<button onclick="selectCategory('Dinner')">🍽️ Dinner</button>
+
+<button onclick="selectCategory('Dessert')">🍰 Dessert</button>
+
+<button onclick="selectCategory('Juice')">🥤 Juice</button>
+
+<button onclick="selectCategory('Snacks')">🍟 Snacks</button>
+
+</div>
+<input type="text"id="ingredients"placeholder="🔍 Enter dish name..."
+onkeypress="handleEnter(event)">
+<button id="voiceBtn" onclick="startVoiceSearch()">
+🎤
+</button>
+
+      
+
+      <button id="generateBtn" onclick="generateRecipe()">
+    Generate Recipe
+</button>
+        <div id="result"></div>
+         <button id="downloadBtn" onclick="downloadPDF()" style="display:none;">
+    📄 Download Recipe PDF
+</button>
+<button id="favoriteBtn" onclick="addFavorite()" style="display:none;">
+    ❤️ Add to Favorites
+</button>
+
+<h2>❤️ Favorite Recipes</h2>
+<ul id="favoriteList"></ul>
+        <h2>🕒 Recent Searches</h2>
+        <ul id="historyList"></ul>
+        
+       
+    </div>
+
+
+</section>
+
+    
+
+<section id="contact">
+
+    <h2>📞 Contact Us</h2>
+
+    <form id="contactForm">
+
+    <input
+        type="text"
+        id="name"
+        placeholder="Your Name"
+        required>
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Your Email"
+        required>
+
+    <textarea
+        id="message"
+        placeholder="Your Message"
+        rows="5"
+        required></textarea>
+
+    <button type="submit">
+        Send Message
+    </button>
+
+</form>
+
+<p id="successMessage"></p>
+
+    <h2>Contact Us</h2>
+
+    <p>Email: recipe@gmail.com</p>
+
+    <p>Phone: +91 9876543210</p>
+
+</section>
+<section id="about">
+
+<h2>About This Project</h2>
+
+<p>
+This project helps users find recipes for different dishes.
+It is developed using HTML, CSS and JavaScript.
+Users can search dish names and view recipe details instantly.
+</p>
+
+</section>
+<footer>
+    <p>© 2026 Recipe Generator | Created by Bhuvaneshwari</p>
+</footer>
+
+   <script src="script.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,534 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ================= BODY (LIGHT THEME) ================= */
+body {
+    background: linear-gradient(135deg, #ffe6f0, #e6f0ff);
+    color: #222;
+    transition: 0.3s;
+}
+
+/* ================= NAVBAR ================= */
+nav {
+    background: linear-gradient(90deg, #ffb6c1, #8ec5ff);
+    color: #222;
+    padding: 14px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 18px;
+}
+
+nav a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+/* ================= LOGO ================= */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+/* ================= SECTIONS ================= */
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* HOME SECTION FIX */
+#home {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    margin: 20px;
+    padding: 40px;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 25px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ================= HEADINGS ================= */
+h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+/* ================= INPUT ================= */
+input {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #8ec5ff;
+}
+
+/* ================= BUTTONS ================= */
+button {
+    padding: 12px 18px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* primary button */
+#generateBtn {
+    width: 100%;
+    background: linear-gradient(90deg, #ff9a9e, #a18cd1);
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+/* small buttons */
+#voiceBtn {
+    width: 55px;
+    background: #8ec5ff;
+    font-size: 20px;
+}
+
+#downloadBtn {
+    background: #a18cd1;
+    color: white;
+}
+
+#favoriteBtn {
+    background: #ff9a9e;
+    color: white;
+}
+
+/* ================= RESULT ================= */
+#result {
+    margin-top: 20px;
+    padding: 18px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+/* ================= IMAGE CARD ================= */
+.image-card {
+    background: #fff;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.image-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ================= LISTS ================= */
+#historyList,
+#favoriteList {
+    list-style: none;
+    margin-top: 15px;
+    padding: 0;
+}
+
+#historyList li,
+#favoriteList li {
+    background: #f7f7ff;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#historyList li:hover,
+#favoriteList li:hover {
+    background: #e6f0ff;
+}
+
+/* ================= CONTACT ================= */
+#contact form {
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    margin-top: 30px;
+}
+
+/* ================= DARK MODE FIX (IMPORTANT) ================= */
+.dark-mode {
+    background: #121212;
+    color: #fff;
+}
+
+/* nav */
+.dark-mode nav {
+    background: #1f1f2f;
+}
+
+.dark-mode nav a {
+    color: #fff;
+}
+
+/* sections */
+.dark-mode #home,
+.dark-mode .container {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+/* result */
+.dark-mode #result {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+/* lists FIX (your main issue) */
+.dark-mode #historyList li,
+.dark-mode #favoriteList li {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+/* inputs */
+.dark-mode input,
+.dark-mode textarea {
+    background: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+/* buttons text fix */
+.dark-mode button {
+    color: #fff;
+}
+/* ================= DARK MODE NAV TEXT FIX ================= */
+.dark-mode nav {
+    background: #1f1f2f;
+}
+
+/* IMPORTANT: text visibility fix */
+.dark-mode nav h2,
+.dark-mode nav p,
+.dark-mode nav .tagline {
+    color: #ffffff !important;
+}
+
+.dark-mode nav a {
+    color: #ffffff;
+}
+
+/* logo text fix */
+.dark-mode .logo h2 {
+    color: #ffffff !important;
+}
+/* ================= RECIPE IMAGE FIX ================= */
+#result .image-card img {
+    width: 100%;
+    max-width: 280px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* extra safety for direct images */
+#result img {
+    max-width: 280px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    margin: 10px auto;
+}
+/* ================= DARK MODE IMAGE CARD FIX ================= */
+.dark-mode .image-card {
+    background: #1e1e1e;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.dark-mode .image-card p {
+    color: #ffb6c1;
+}
+
+.dark-mode #result {
+    background: #1e1e1e;
+}
+/* ================= DARK MODE BUTTON FIX ================= */
+
+.dark-mode button {
+    background: linear-gradient(90deg, #6c63ff, #5a54d1);
+    color: #ffffff !important;
+    border: none;
+}
+
+/* Theme button */
+.dark-mode nav button {
+    background: #2d2d44;
+    color: #ffffff !important;
+}
+
+/* Contact submit button */
+.dark-mode #contact button {
+    background: linear-gradient(90deg, #6c63ff, #8a7dff);
+    color: #ffffff !important;
+}
+
+/* Button hover */
+.dark-mode button:hover {
+    background: linear-gradient(90deg, #7a72ff, #675fff);
+}
+/* Theme Button */
+nav button {
+    width: auto;
+    padding: 12px 22px;
+    margin: 0;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #ff9a9e, #a18cd1);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Contact Submit Button */
+#contact button {
+    width: 180px;
+    margin: 15px auto 0;
+    display: block;
+    background: linear-gradient(90deg, #ff9a9e, #a18cd1);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#contact button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+nav button {
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.dark-mode nav button {
+    color: #ffffff !important;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+#contact button {
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+#generateBtn {
+    width: 100%;
+    background: linear-gradient(90deg, #ff9a9e, #a18cd1);
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#generateBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(161, 140, 209, 0.35);
+}
+.dark-mode #generateBtn {
+    background: linear-gradient(90deg, #ff9a9e, #a18cd1);
+    color: #ffffff;
+}
+#contactForm{
+    max-width:550px;
+    margin:auto;
+}
+
+#contactForm input,
+#contactForm textarea{
+    width:100%;
+    margin:12px 0;
+    padding:14px 16px;
+    border-radius:12px;
+    border:1px solid #dbe4ff;
+    background:#fff;
+    font-size:16px;
+}
+
+#contactForm textarea{
+    resize:none;
+}
+
+#contactForm button{
+    width:180px;
+    padding:13px;
+    border:none;
+    border-radius:12px;
+    background:#6c8cff;
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#contactForm button:hover{
+    background:#5676f8;
+}
+
+#successMessage{
+    margin-top:20px;
+    color:#28a745;
+    font-weight:bold;
+}
+#favoriteList li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#f8f9ff;
+    padding:12px 15px;
+    margin:10px 0;
+    border-radius:12px;
+}
+
+#favoriteList span{
+    cursor:pointer;
+    font-weight:600;
+}
+
+.remove-btn{
+    width:auto;
+    background:none;
+    border:none;
+    color:#ff4d6d;
+    font-size:18px;
+    padding:4px 8px;
+    margin:0;
+    cursor:pointer;
+    box-shadow:none;
+}
+
+.remove-btn:hover{
+    background:none;
+    color:#e60039;
+    transform:scale(1.15);
+}
+
+.categories{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:25px 0;
+}
+
+.categories button{
+
+    width:auto;
+
+    padding:10px 18px;
+
+    background:#eaf2ff;
+
+    color:#4d73ff;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    border:none;
+
+    transition:.3s;
+}
+
+.categories button:hover{
+
+    background:#6c8cff;
+
+    color:white;
+
+}
