@@ -21,7 +21,7 @@ async function generateRecipe() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/generate-recipe",
+            "https://ai-based-recipe-generator-web.onrender.com/generate-recipe",
             {
                 method: "POST",
                 headers: {
