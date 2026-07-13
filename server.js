@@ -7,6 +7,9 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.get("/", (req, res) => {
+    res.send("AI Recipe Generator Backend Running");
+});
 
 app.post("/generate-recipe", async (req, res) => {
 
