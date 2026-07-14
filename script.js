@@ -2,7 +2,7 @@ async function generateRecipe() {
 
     const ingredient = document.getElementById("ingredients").value;
     const button = document.getElementById("generateBtn");
-
+      
     button.disabled = true;
     button.innerHTML = "⏳ Generating...";
 
@@ -28,8 +28,8 @@ async function generateRecipe() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    ingredient: ingredient
-                })
+    ingredient: ingredient
+})
             }
         );
 
@@ -43,13 +43,17 @@ async function generateRecipe() {
             button.innerHTML = "Generate Recipe";
             return;
         }
+        // Show recipe first;
+        document.getElementById("result").innerHTML =
+`
+<div id="recipeImage"></div>
+<div id="recipeContent">${data.recipe}</div>
+`;
 
-        // Show recipe first
-        document.getElementById("result").innerHTML = data.recipe;
-
-        // Add image
-        loadImage(ingredient);
-
+// Add image above ingredients
+setTimeout(() => {
+    loadImage(ingredient);
+}, 100);
         // Save history
         saveHistory(ingredient);
 
@@ -258,13 +262,19 @@ window.addEventListener("load", () => {
         document.body.classList.add("dark-mode");
     }
 });
+/* ===================== IMAGE (UPDATED) ===================== */
+
 async function loadImage(query) {
 
     const API_KEY = "BQkYD7u8t0mbvVGl5Hi8vD80UsIaIAEsrIc8Mas3Y8onNuvzE6lATIth";
 
     try {
+
+        // Better search keyword for food image
+        const searchQuery = query + " food dish recipe plated";
+
         const response = await fetch(
-            `https://api.pexels.com/v1/search?query=${query}&per_page=1`,
+            `https://api.pexels.com/v1/search?query=${encodeURIComponent(searchQuery)}&per_page=5`,
             {
                 headers: {
                     Authorization: API_KEY
@@ -274,25 +284,46 @@ async function loadImage(query) {
 
         const data = await response.json();
 
-        const imgUrl = data.photos[0]?.src?.medium;
 
-        // 🌟 Create a clean card
+        if (!data.photos || data.photos.length === 0) {
+            console.log("No image found");
+            return;
+        }
+
+
+        // Select random image from results
+        const randomImage =
+            data.photos[Math.floor(Math.random() * data.photos.length)];
+
+
+        const imgUrl = randomImage.src.medium;
+
+
+        // Create image card
         const card = document.createElement("div");
         card.className = "image-card";
 
+
+        const title = document.createElement("h3");
+        title.innerText = "🍽️ " + query + " Image";
+
+
         const img = document.createElement("img");
-        img.src = imgUrl || "https://via.placeholder.com/400x300?text=No+Image";
+        img.src = imgUrl;
+        img.alt = query;
 
-        const caption = document.createElement("p");
-        caption.innerText = "🍽️ Suggested Dish Image";
 
+        card.appendChild(title);
         card.appendChild(img);
-        card.appendChild(caption);
 
-        document.getElementById("result").prepend(card);
+// Show image above ingredients
+document.getElementById("recipeImage").appendChild(card);
+
 
     } catch (error) {
-        console.log(error);
+
+        console.log("Image Error:", error);
+
     }
 }
 document.getElementById("contactForm").addEventListener("submit", function(e){
