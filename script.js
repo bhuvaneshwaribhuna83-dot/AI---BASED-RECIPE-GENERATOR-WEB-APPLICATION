@@ -193,23 +193,28 @@ function downloadPDF() {
     const recipe = document.getElementById("result");
 
     const options = {
-        margin: 1,
+        margin: 0.5,
         filename: "Recipe.pdf",
         image: {
             type: "jpeg",
-            quality: 1
+            quality: 0.98
         },
         html2canvas: {
-            scale: 2
+            scale: 3,
+            useCORS: true,
+            scrollY: 0
         },
         jsPDF: {
-            unit: "in",
+            unit: "mm",
             format: "a4",
             orientation: "portrait"
         }
     };
 
-    html2pdf().set(options).from(recipe).save();
+    setTimeout(() => {
+        html2pdf().set(options).from(recipe).save();
+    }, 500);
+
 }
 
 /* ===================== VOICE ===================== */
